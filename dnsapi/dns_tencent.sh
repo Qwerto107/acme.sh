@@ -34,7 +34,7 @@ dns_tencent_add() {
   fi
 
   _debug "Add record"
-  _add_record_query "$_domain" "$_sub_domain" "$txtvalue" && _tencent_rest "CreateRecord"
+  _add_record_query "$_domain" "$_sub_domain" "$txtvalue" && _tencent_rest "CreateTXTRecord"
 }
 
 dns_tencent_rm() {
@@ -129,7 +129,7 @@ _tencent_rest() {
 }
 
 _add_record_query() {
-  query="{\"Domain\":\"$1\",\"SubDomain\":\"$2\",\"RecordType\":\"TXT\",\"RecordLineId\":\"0\",\"RecordLine\":\"0\",\"Value\":\"$3\",\"TTL\":600}"
+  query="{\"Domain\":\"$1\",\"SubDomain\":\"$2\",\"RecordLineId\":\"0\",\"RecordLine\":\"0\",\"Value\":\"$3\",\"TTL\":600}"
 }
 
 _describe_records_query() {
